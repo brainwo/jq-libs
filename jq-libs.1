@@ -1,6 +1,9 @@
 .nh
-.TH jq-libs 1
-.SH Setup
+.TH JQ-LIBS 1
+.SH NAME
+jq-libs \- Collection of jq modules
+
+.SH SETUP
 Clone the repository:
 
 .EX
@@ -24,10 +27,10 @@ Optionally, you can set a ZSH alias (zsh-lovers(1)
 
 .EX
 alias -g jq-libs="path/to/cloned/git/repository/jq-libs.1"
-glow -p jq-libs
+man jq-libs
 .EE
 
-.SH Available libraries:
+.SH AVAILABLE LIBRARIES
 htmld
 \[la]./htmld.jq\[ra]: The inverse of \fB@html\fR\&.
 
@@ -36,3 +39,15 @@ jq `include "htmld"; htmld`
    "This works if x &lt; y"
 => "This works if x < y"
 .EE
+
+.SH FOR MAINTAINER
+.SS Generate \fBjq-libs.1\fR from \fBREADME.md\fR:
+Use go-md2man
+\[la]https://github.com/cpuguy83/go\-md2man\[ra]\&.
+
+.EX
+go-md2man < README.md > jq-libs.1
+.EE
+
+.SH BUGS
+Report them here in https://github.com/brainwo/jq-libs/issues.

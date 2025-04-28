@@ -1,6 +1,10 @@
-# jq-libs 1
+# JQ-LIBS 1
 
-## Setup
+## NAME
+
+jq-libs - Collection of jq modules
+
+## SETUP
 
 Clone the repository:
 
@@ -23,7 +27,7 @@ alias -g jq-libs="path/to/cloned/git/repository/jq-libs.1"
 man jq-libs
 ```
 
-## Available libraries:
+## AVAILABLE LIBRARIES
 
 [htmld](./htmld.jq): The inverse of `@html`.
 
@@ -33,7 +37,7 @@ jq `include "htmld"; htmld`
 => "This works if x < y"
 ```
 
-## For maintainer:
+## FOR MAINTAINER
 
 ### Generate `jq-libs.1` from `README.md`:
 
@@ -42,3 +46,7 @@ Use [go-md2man](https://github.com/cpuguy83/go-md2man).
 ```
 go-md2man < README.md > jq-libs.1
 ```
+
+## BUGS
+
+Report them here in https://github.com/brainwo/jq-libs/issues.
