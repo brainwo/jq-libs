@@ -1,53 +1,83 @@
-.nh
-.TH JQ-LIBS 1
-.SH NAME
-jq-libs \- Collection of jq modules
+.TH "jq-libs" 1
 
-.SH SETUP
+.SH "Name"
+.PP
+jq\-libs \- Collection of jq modules
+
+.SH "SETUP"
+.PP
 Clone the repository:
-
-.EX
-git clone https://github.com/brainwo/jq-libs.git
-.EE
+.RS
+.PP
+.nf
+git clone https://github\.com/brainwo/jq\-libs\.git
+.fi
+.RE
+.PP
+Import the library when invoking `\f[CR]jq\fP`:
+.RS
+.PP
+.nf
+jq \-L "path/to/cloned/git/repository" {\.\.\.}
+.fi
+.RE
+.PP
+Optionally, you can set an ALIAS(1P)[1] to `\f[CR]jq\fP`\.
+.sp
+[1] https://man\.archlinux\.org/man/alias\.1p jq\-libs
+.nf
+.fi
 
 .PP
-Import the library when invoking \fBjq\fR:
+Optionally, you can set a ZSH alias (zsh\-lovers(1)[2]) to this README
+page and read it anytime using your favorite pager:
+.sp
+[2] https://man\.archlinux\.org/man/zsh\-lovers\.1 jq\-libs
+.nf
+.fi
 
-.EX
-jq -L "path/to/cloned/git/repository" {...}
-.EE
-
+.RS
 .PP
-Optionally, you can set an ALIAS(1P)
-\[la]https://man.archlinux.org/man/alias.1p\[ra] to \fBjq\fR\&.
+.nf
+alias \-g jq\-libs="path/to/cloned/git/repository/jq\-libs\.1"
+man jq\-libs
+.fi
+.RE
 
+.SH "AVAILABLE LIBRARIES"
 .PP
-Optionally, you can set a ZSH alias (zsh-lovers(1)
-\[la]https://man.archlinux.org/man/zsh\-lovers.1\[ra]) to this README page and read it anytime using your favorite pager:
+htmld[3]: The inverse of `\f[CR]@html\fP`\.
+.sp
+[3] \./htmld\.jq jq\-libs
+.nf
+.fi
 
-.EX
-alias -g jq-libs="path/to/cloned/git/repository/jq-libs.1"
-man jq-libs
-.EE
-
-.SH AVAILABLE LIBRARIES
-htmld
-\[la]./htmld.jq\[ra]: The inverse of \fB@html\fR\&.
-
-.EX
+.RS
+.PP
+.nf
 jq `include "htmld"; htmld`
    "This works if x &lt; y"
 => "This works if x < y"
-.EE
+.fi
+.RE
 
-.SH FOR MAINTAINER
-.SS Generate \fBjq-libs.1\fR from \fBREADME.md\fR:
-Use go-md2man
-\[la]https://github.com/cpuguy83/go\-md2man\[ra]\&.
+.SH "FOR MAINTAINER"
 
-.EX
-go-md2man < README.md > jq-libs.1
-.EE
+.SS "Generate `\f[CR]jq-libs.1\fP` from `\f[CR]README.md\fP`:"
+.PP
+Use go\-md2man[4]\.
+.sp
+[4] https://github\.com/cpuguy83/go\-md2man jq\-libs
+.nf
+.fi
 
-.SH BUGS
-Report them here in https://github.com/brainwo/jq-libs/issues.
+.RS
+.PP
+.nf
+go\-md2man < README\.md > jq\-libs\.1
+.fi
+.RE
+
+.SH "BUGS"
+.PP
+Report them here in https://github\.com/brainwo/jq\-libs/issues\.
