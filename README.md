@@ -33,6 +33,20 @@ AVAILABLE LIBRARIES
        "This works if x &lt; y"
     => "This works if x < y"
 
+[sql](./sql.jq): Encode string to valid sql insert for text. It's short,
+you can write it without using the module. But writing it might be
+painful in a shell script.
+
+    jq `gsub("'"; "''") | "'\(.)'"`
+       "You probably don't need this module"
+    => "'You probably don''t need this module'"
+
+[sqld](./sql.jq): Inverse of 
+
+    jq `include "sql"; sqld`
+       "'This module isn''t that useless after all"
+    => "This module isn't that useless after all"
+
 
 FOR MAINTAINER/CONTRIBUTOR
 ==========================

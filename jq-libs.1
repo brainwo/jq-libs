@@ -1,6 +1,6 @@
 .TH "jq-libs" 1
 
-.SH "Name"
+.SH "NAME"
 .PP
 jq\-libs \- Collection of jq modules
 
@@ -60,21 +60,53 @@ jq `include "htmld"; htmld`
 => "This works if x < y"
 .fi
 .RE
-
-.SH "FOR MAINTAINER"
-
-.SS "Generate `\f[CR]jq-libs.1\fP` from `\f[CR]README.md\fP`:"
 .PP
-Use go\-md2man[4]\.
+sql[4]: Encode string to valid sql insert for text\. It's short,
+you can write it without using the module\. But writing it might be
+painful in a shell script\.
 .sp
-[4] https://github\.com/cpuguy83/go\-md2man jq\-libs
+[4] \./sql\.jq jq\-libs
 .nf
 .fi
 
 .RS
 .PP
 .nf
-go\-md2man < README\.md > jq\-libs\.1
+jq `gsub("'"; "''") | "'\(\.)'"`
+   "You probably don't need this module"
+=> "'You probably don''t need this module'"
+.fi
+.RE
+.PP
+sqld[5]: Inverse of
+.sp
+[5] \./sql\.jq jq\-libs
+.nf
+.fi
+
+.RS
+.PP
+.nf
+jq `include "sql"; sqld`
+   "'This module isn''t that useless after all"
+=> "This module isn't that useless after all"
+.fi
+.RE
+
+.SH "FOR MAINTAINER/CONTRIBUTOR"
+
+.SS "Generate `\f[CR]jq-libs.1\fP` from `\f[CR]README.md\fP`:"
+.PP
+Use mandown[6]\.
+.sp
+[6] https://gitlab\.com/kornelski/mandown jq\-libs
+.nf
+.fi
+
+.RS
+.PP
+.nf
+mandown README\.md "jq\-libs" 1 > jq\-libs\.1
 .fi
 .RE
 
