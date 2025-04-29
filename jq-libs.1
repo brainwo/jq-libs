@@ -45,13 +45,10 @@ man jq\-libs
 .RE
 
 .SH "AVAILABLE LIBRARIES"
-.PP
-htmld[3]: The inverse of `\f[CR]@html\fP`\.
-.sp
-[3] \./htmld\.jq jq\-libs
-.nf
-.fi
 
+.SB "htmld"
+.PP
+The inverse of `\f[CR]@html\fP`\.
 .RS
 .PP
 .nf
@@ -60,15 +57,12 @@ jq `include "htmld"; htmld`
 => "This works if x < y"
 .fi
 .RE
-.PP
-sql[4]: Encode string to valid sql insert for text\. It's short,
-you can write it without using the module\. But writing it might be
-painful in a shell script\.
-.sp
-[4] \./sql\.jq jq\-libs
-.nf
-.fi
 
+.SB "sql"
+.PP
+Encode string to valid sql insert for text\. It's short, you can write it
+without using the module\. But writing it might be painful to write in a
+shell script\.
 .RS
 .PP
 .nf
@@ -77,13 +71,10 @@ jq `gsub("'"; "''") | "'\(\.)'"`
 => "'You probably don''t need this module'"
 .fi
 .RE
-.PP
-sqld[5]: Inverse of
-.sp
-[5] \./sql\.jq jq\-libs
-.nf
-.fi
 
+.SB "sqld"
+.PP
+Inverse of sql\.
 .RS
 .PP
 .nf
@@ -97,9 +88,9 @@ jq `include "sql"; sqld`
 
 .SS "Generate `\f[CR]jq-libs.1\fP` from `\f[CR]README.md\fP`:"
 .PP
-Use mandown[6]\.
+Use mandown[3]\.
 .sp
-[6] https://gitlab\.com/kornelski/mandown jq\-libs
+[3] https://gitlab\.com/kornelski/mandown jq\-libs
 .nf
 .fi
 

@@ -27,21 +27,27 @@ page and read it anytime using your favorite pager:
 AVAILABLE LIBRARIES
 ===================
 
-[htmld](./htmld.jq): The inverse of `@html`.
+### htmld
+
+The inverse of `@html`.
 
     jq `include "htmld"; htmld`
        "This works if x &lt; y"
     => "This works if x < y"
 
-[sql](./sql.jq): Encode string to valid sql insert for text. It's short,
-you can write it without using the module. But writing it might be
-painful in a shell script.
+### sql
+
+Encode string to valid sql insert for text. It's short, you can write it
+without using the module. But writing it might be painful to write in a
+shell script.
 
     jq `gsub("'"; "''") | "'\(.)'"`
        "You probably don't need this module"
     => "'You probably don''t need this module'"
 
-[sqld](./sql.jq): Inverse of 
+### sqld
+
+Inverse of sql.
 
     jq `include "sql"; sqld`
        "'This module isn''t that useless after all"
