@@ -1,6 +1,9 @@
 def sql:
-  gsub("'"; "''") | 
-  "'\(.)'";
+  if . != null then
+    . | gsub("'"; "''") | "'\(.)'"
+  else
+    "NULL"
+  end;
 
 def sqld:
   gsub("^'"; "") |
